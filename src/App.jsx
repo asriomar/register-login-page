@@ -113,7 +113,7 @@ function App() {
        <div className="bg-indigo-300 rounded-lg shadow-lg">
         <img
           className=" shadow-lg"
-          src="https://picsum.photos/300/500"
+          src="https://picsum.photos/400/500"
           alt="login-pic"
         />
       </div>
