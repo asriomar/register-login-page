@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 function App() {
+  const [email, setEmail] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [registeredUsers, setRegisteredUsers] = useState([]);
@@ -8,9 +9,9 @@ function App() {
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    if (username && password) {
+    if (username && password && (!isRegisterMode || email)) {
       if (isRegisterMode) {
-        setRegisteredUsers([...registeredUsers, { username, password }]);
+        setRegisteredUsers([...registeredUsers, { username, password, email }]);
         alert('Registered successfully!');
       } else {
         const isRegistered = registeredUsers.some(
@@ -22,10 +23,11 @@ function App() {
           alert('Invalid username or password!');
         }
       }
+      setEmail('');
       setUsername('');
       setPassword('');
     } else {
-      alert('Please fill in both username and password!');
+      alert('Please fill in all fields!');
     }
   };
 
@@ -40,6 +42,24 @@ function App() {
           {isRegisterMode ? 'Create an Account' : 'Log In'}
         </h2>
         <form onSubmit={handleFormSubmit} className="space-y-4">
+          {isRegisterMode && (
+            <div>
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium text-gray-700"
+              >
+                Email
+              </label>
+              <input
+                type="email"
+                id="email"
+                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
+                placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+          )}
           <div>
             <label
               htmlFor="username"
