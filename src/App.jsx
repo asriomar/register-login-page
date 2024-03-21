@@ -111,12 +111,12 @@ function App() {
         </form>
       </div>
        <div className="bg-indigo-300 rounded-lg shadow-lg">
-        <img
+         {/*<img
           className=" shadow-lg"
           src="https://picsum.photos/400/600"
           alt="login-pic"
         />
-      </div>
+      </div>*/}
     </div>
   );
 }
