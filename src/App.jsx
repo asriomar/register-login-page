@@ -36,8 +36,8 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center font-mono">
-      <div className="bg-white p-8  shadow-lg">
+    <div className="min-h-screen bg-gray-100 flex flex-col sm:flex-row items-center justify-center font-mono">
+      <div className="bg-white p-8 shadow-lg mb-4 sm:mr-4 sm:mb-0 sm:w-1/2">
         <h2 className="text-3xl font-bold mb-6 text-center">
           {isRegisterMode ? 'Create an Account' : 'Log In'}
         </h2>
@@ -110,9 +110,9 @@ function App() {
           </button>
         </form>
       </div>
-       <div className="bg-indigo-300 rounded-lg shadow-lg">
-         <img
-          className=" shadow-lg"
+      <div className="bg-indigo-300 rounded-lg shadow-lg sm:w-1/2">
+        <img
+          className="w-full h-auto object-cover rounded-lg shadow-lg"
           src="https://picsum.photos/400/600"
           alt="login-pic"
         />
